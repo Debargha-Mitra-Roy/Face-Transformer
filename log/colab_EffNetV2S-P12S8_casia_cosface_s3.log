@@ -1,0 +1,1289 @@
+GPU_ID [0]
+============================================================
+Overall Configurations:
+{'SEED': 1337, 'INPUT_SIZE': [112, 112], 'EMBEDDING_SIZE': 512, 'GPU_ID': [0], 'DEVICE': device(type='cuda', index=0), 'MULTI_GPU': True, 'NUM_EPOCH': 1, 'BATCH_SIZE': 300, 'DATA_ROOT': './Data/casia-webface/', 'EVAL_PATH': './eval/', 'BACKBONE_NAME': 'EFFNET_V2', 'HEAD_NAME': 'CosFace', 'TARGET': ['lfw'], 'BACKBONE_RESUME_ROOT': './results/EffNetV2S-P12S8_casia_cosface_s2/Backbone_EFFNET_V2_checkpoint.pth', 'WORK_PATH': './results/EffNetV2S-P12S8_casia_cosface_s3'}
+============================================================
+./Data/casia-webface/train.rec ./Data/casia-webface/train.idx
+header0 label [490624. 501196.]
+id2range 10572
+Number of Training Classes: 10572
+./eval/lfw.bin
+loading bin 0
+loading bin 1000
+loading bin 2000
+loading bin 3000
+loading bin 4000
+loading bin 5000
+loading bin 6000
+loading bin 7000
+loading bin 8000
+loading bin 9000
+loading bin 10000
+loading bin 11000
+torch.Size([12000, 3, 112, 112])
+ver lfw
+self.device_id [0]
+self.device_id [0]
+[INFO]: Loading pre-trained weights
+[INFO]: Fine-tuning all layers...
+self.device_id [0]
+============================================================
+efficientnet_v2_face(
+  (model): EfficientNet(
+    (features): Sequential(
+      (0): Conv2dNormActivation(
+        (0): Conv2d(3, 24, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (1): BatchNorm2d(24, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (2): SiLU(inplace=True)
+      )
+      (1): Sequential(
+        (0): FusedMBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(24, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (1): BatchNorm2d(24, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.0, mode=row)
+        )
+        (1): FusedMBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(24, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (1): BatchNorm2d(24, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.005, mode=row)
+        )
+      )
+      (2): Sequential(
+        (0): FusedMBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(24, 96, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+              (1): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(96, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.01, mode=row)
+        )
+        (1): FusedMBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(48, 192, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (1): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(192, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.015000000000000003, mode=row)
+        )
+        (2): FusedMBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(48, 192, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (1): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(192, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.02, mode=row)
+        )
+        (3): FusedMBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(48, 192, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (1): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(192, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.025, mode=row)
+        )
+      )
+      (3): Sequential(
+        (0): FusedMBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(48, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+              (1): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(192, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.030000000000000006, mode=row)
+        )
+        (1): FusedMBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(64, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (1): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.035, mode=row)
+        )
+        (2): FusedMBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(64, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (1): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.04, mode=row)
+        )
+        (3): FusedMBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(64, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (1): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.045, mode=row)
+        )
+      )
+      (4): Sequential(
+        (0): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=256, bias=False)
+              (1): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(256, 16, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(16, 256, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.05, mode=row)
+        )
+        (1): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512, bias=False)
+              (1): BatchNorm2d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(512, 32, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(32, 512, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.05500000000000001, mode=row)
+        )
+        (2): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512, bias=False)
+              (1): BatchNorm2d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(512, 32, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(32, 512, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.06000000000000001, mode=row)
+        )
+        (3): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512, bias=False)
+              (1): BatchNorm2d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(512, 32, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(32, 512, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.065, mode=row)
+        )
+        (4): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512, bias=False)
+              (1): BatchNorm2d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(512, 32, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(32, 512, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.07, mode=row)
+        )
+        (5): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512, bias=False)
+              (1): BatchNorm2d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(512, 32, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(32, 512, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.075, mode=row)
+        )
+      )
+      (5): Sequential(
+        (0): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(128, 768, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(768, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(768, 768, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=768, bias=False)
+              (1): BatchNorm2d(768, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(768, 32, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(32, 768, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.08, mode=row)
+        )
+        (1): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(160, 960, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(960, 960, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=960, bias=False)
+              (1): BatchNorm2d(960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(960, 40, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(40, 960, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(960, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.085, mode=row)
+        )
+        (2): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(160, 960, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(960, 960, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=960, bias=False)
+              (1): BatchNorm2d(960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(960, 40, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(40, 960, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(960, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.09, mode=row)
+        )
+        (3): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(160, 960, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(960, 960, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=960, bias=False)
+              (1): BatchNorm2d(960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(960, 40, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(40, 960, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(960, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.095, mode=row)
+        )
+        (4): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(160, 960, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(960, 960, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=960, bias=False)
+              (1): BatchNorm2d(960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(960, 40, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(40, 960, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(960, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.1, mode=row)
+        )
+        (5): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(160, 960, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(960, 960, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=960, bias=False)
+              (1): BatchNorm2d(960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(960, 40, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(40, 960, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(960, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.10500000000000001, mode=row)
+        )
+        (6): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(160, 960, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(960, 960, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=960, bias=False)
+              (1): BatchNorm2d(960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(960, 40, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(40, 960, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(960, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.11000000000000001, mode=row)
+        )
+        (7): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(160, 960, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(960, 960, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=960, bias=False)
+              (1): BatchNorm2d(960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(960, 40, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(40, 960, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(960, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.11500000000000002, mode=row)
+        )
+        (8): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(160, 960, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(960, 960, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=960, bias=False)
+              (1): BatchNorm2d(960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(960, 40, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(40, 960, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(960, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.12000000000000002, mode=row)
+        )
+      )
+      (6): Sequential(
+        (0): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(160, 960, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(960, 960, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=960, bias=False)
+              (1): BatchNorm2d(960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(960, 40, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(40, 960, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(960, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.125, mode=row)
+        )
+        (1): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(256, 1536, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(1536, 1536, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1536, bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(1536, 64, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(64, 1536, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(1536, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.13, mode=row)
+        )
+        (2): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(256, 1536, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(1536, 1536, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1536, bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(1536, 64, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(64, 1536, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(1536, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.135, mode=row)
+        )
+        (3): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(256, 1536, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(1536, 1536, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1536, bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(1536, 64, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(64, 1536, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(1536, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.14, mode=row)
+        )
+        (4): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(256, 1536, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(1536, 1536, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1536, bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(1536, 64, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(64, 1536, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(1536, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.14500000000000002, mode=row)
+        )
+        (5): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(256, 1536, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(1536, 1536, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1536, bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(1536, 64, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(64, 1536, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(1536, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.15, mode=row)
+        )
+        (6): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(256, 1536, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(1536, 1536, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1536, bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(1536, 64, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(64, 1536, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(1536, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.155, mode=row)
+        )
+        (7): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(256, 1536, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(1536, 1536, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1536, bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(1536, 64, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(64, 1536, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(1536, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.16, mode=row)
+        )
+        (8): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(256, 1536, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(1536, 1536, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1536, bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(1536, 64, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(64, 1536, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(1536, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.165, mode=row)
+        )
+        (9): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(256, 1536, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(1536, 1536, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1536, bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(1536, 64, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(64, 1536, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(1536, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.17, mode=row)
+        )
+        (10): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(256, 1536, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(1536, 1536, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1536, bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(1536, 64, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(64, 1536, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(1536, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.175, mode=row)
+        )
+        (11): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(256, 1536, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(1536, 1536, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1536, bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(1536, 64, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(64, 1536, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(1536, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.18, mode=row)
+        )
+        (12): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(256, 1536, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(1536, 1536, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1536, bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(1536, 64, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(64, 1536, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(1536, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.185, mode=row)
+        )
+        (13): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(256, 1536, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(1536, 1536, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1536, bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(1536, 64, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(64, 1536, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(1536, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.19, mode=row)
+        )
+        (14): MBConv(
+          (block): Sequential(
+            (0): Conv2dNormActivation(
+              (0): Conv2d(256, 1536, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (1): Conv2dNormActivation(
+              (0): Conv2d(1536, 1536, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1536, bias=False)
+              (1): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+              (2): SiLU(inplace=True)
+            )
+            (2): SqueezeExcitation(
+              (avgpool): AdaptiveAvgPool2d(output_size=1)
+              (fc1): Conv2d(1536, 64, kernel_size=(1, 1), stride=(1, 1))
+              (fc2): Conv2d(64, 1536, kernel_size=(1, 1), stride=(1, 1))
+              (activation): SiLU(inplace=True)
+              (scale_activation): Sigmoid()
+            )
+            (3): Conv2dNormActivation(
+              (0): Conv2d(1536, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): BatchNorm2d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+            )
+          )
+          (stochastic_depth): StochasticDepth(p=0.195, mode=row)
+        )
+      )
+      (7): Conv2dNormActivation(
+        (0): Conv2d(256, 1280, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(1280, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (2): SiLU(inplace=True)
+      )
+    )
+    (avgpool): AdaptiveAvgPool2d(output_size=1)
+    (classifier): Sequential(
+      (0): BatchNorm1d(1280, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (1): Linear(in_features=1280, out_features=512, bias=True)
+      (2): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (loss): CosFace(in_features = 512, out_features = 10572, s = 64.0, m = 0.35)
+)
+EFFNET_V2 Backbone Generated
+============================================================
+============================================================
+AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 5e-05
+    maximize: False
+    weight_decay: 0.0
+
+Parameter Group 1
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 5e-05
+    maximize: False
+    weight_decay: 0.05
+)
+Optimizer Generated
+============================================================
+============================================================
+./results/EffNetV2S-P12S8_casia_cosface_s2/Backbone_EFFNET_V2_checkpoint.pth
+Loading Backbone Checkpoint './results/EffNetV2S-P12S8_casia_cosface_s2/Backbone_EFFNET_V2_checkpoint.pth'
+============================================================
+Device cuda:0
+GPU_ID allotted is 0
+Epoch 1 Learing rate : 5e-05 
+Epoch 1 Batch 10	Speed: 173.55 samples/s	Training Loss 28.9286 (28.5273)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 20	Speed: 296.08 samples/s	Training Loss 28.8568 (28.6710)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 30	Speed: 298.91 samples/s	Training Loss 28.5128 (28.7787)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 40	Speed: 308.32 samples/s	Training Loss 28.7693 (28.9038)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 50	Speed: 300.30 samples/s	Training Loss 28.6756 (28.8567)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 60	Speed: 314.19 samples/s	Training Loss 28.6521 (28.9006)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 70	Speed: 303.01 samples/s	Training Loss 29.1374 (28.8782)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 80	Speed: 293.27 samples/s	Training Loss 28.9474 (28.8138)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 90	Speed: 297.41 samples/s	Training Loss 28.5399 (28.7760)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 100	Speed: 296.46 samples/s	Training Loss 28.8169 (28.7973)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000050
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][100]XNorm: 10.01777
+[lfw][100]Accuracy-Flip: 0.89000+-0.01370
+[lfw][100]Best-Threshold: 0.84100
+highest_acc: [0.89]
+Epoch 1 Batch 110	Speed: 88.61 samples/s	Training Loss 28.9915 (28.6068)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 120	Speed: 290.84 samples/s	Training Loss 28.9328 (28.6795)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 130	Speed: 287.98 samples/s	Training Loss 28.5303 (28.5957)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 140	Speed: 288.59 samples/s	Training Loss 28.5176 (28.6036)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 150	Speed: 294.20 samples/s	Training Loss 28.3152 (28.6644)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 160	Speed: 290.69 samples/s	Training Loss 28.8610 (28.4453)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 170	Speed: 292.96 samples/s	Training Loss 28.1629 (28.4840)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 180	Speed: 294.92 samples/s	Training Loss 28.4210 (28.3653)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 190	Speed: 292.17 samples/s	Training Loss 28.4513 (28.4827)	Training Prec@1 0.333 (0.033)
+Epoch 1 Batch 200	Speed: 292.59 samples/s	Training Loss 28.4867 (28.4216)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000050
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][200]XNorm: 8.81783
+[lfw][200]Accuracy-Flip: 0.89367+-0.01085
+[lfw][200]Best-Threshold: 0.84600
+highest_acc: [0.8936666666666667]
+Epoch 1 Batch 210	Speed: 86.27 samples/s	Training Loss 28.5773 (28.3201)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 220	Speed: 288.70 samples/s	Training Loss 28.7101 (28.4864)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 230	Speed: 291.60 samples/s	Training Loss 28.3461 (28.3159)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 240	Speed: 287.56 samples/s	Training Loss 28.2709 (28.2984)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 250	Speed: 289.43 samples/s	Training Loss 28.4439 (28.2252)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 260	Speed: 291.90 samples/s	Training Loss 28.2179 (28.2023)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 270	Speed: 289.98 samples/s	Training Loss 28.3970 (28.2466)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 280	Speed: 293.40 samples/s	Training Loss 28.1668 (28.1543)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 290	Speed: 289.28 samples/s	Training Loss 28.0818 (27.9939)	Training Prec@1 0.000 (0.033)
+Epoch 1 Batch 300	Speed: 295.12 samples/s	Training Loss 27.7544 (28.1367)	Training Prec@1 0.000 (0.033)
+Learning rate 0.000050
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][300]XNorm: 7.70345
+[lfw][300]Accuracy-Flip: 0.89767+-0.01123
+[lfw][300]Best-Threshold: 0.87000
+highest_acc: [0.8976666666666666]
+Epoch 1 Batch 310	Speed: 87.76 samples/s	Training Loss 28.0306 (27.8166)	Training Prec@1 0.000 (0.033)
+Epoch 1 Batch 320	Speed: 274.98 samples/s	Training Loss 27.7513 (28.0034)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 330	Speed: 288.34 samples/s	Training Loss 27.7658 (27.9889)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 340	Speed: 293.64 samples/s	Training Loss 27.6478 (28.0887)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 350	Speed: 288.27 samples/s	Training Loss 27.9950 (27.9649)	Training Prec@1 0.000 (0.067)
+Epoch 1 Batch 360	Speed: 292.01 samples/s	Training Loss 27.7917 (27.9554)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 370	Speed: 288.47 samples/s	Training Loss 27.7583 (27.8506)	Training Prec@1 0.000 (0.033)
+Epoch 1 Batch 380	Speed: 291.56 samples/s	Training Loss 28.0127 (27.8293)	Training Prec@1 0.000 (0.067)
+Epoch 1 Batch 390	Speed: 290.44 samples/s	Training Loss 27.5912 (27.7930)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 400	Speed: 289.47 samples/s	Training Loss 28.0356 (27.7371)	Training Prec@1 0.333 (0.100)
+Learning rate 0.000050
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][400]XNorm: 9.38993
+[lfw][400]Accuracy-Flip: 0.90050+-0.01195
+[lfw][400]Best-Threshold: 0.89200
+highest_acc: [0.9004999999999999]
+Epoch 1 Batch 410	Speed: 87.67 samples/s	Training Loss 28.0696 (27.8081)	Training Prec@1 0.000 (0.033)
+Epoch 1 Batch 420	Speed: 293.77 samples/s	Training Loss 27.7832 (27.8028)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 430	Speed: 291.07 samples/s	Training Loss 27.2105 (27.7243)	Training Prec@1 0.000 (0.067)
+Epoch 1 Batch 440	Speed: 292.67 samples/s	Training Loss 27.4988 (27.7393)	Training Prec@1 0.333 (0.167)
+Epoch 1 Batch 450	Speed: 288.95 samples/s	Training Loss 27.9118 (27.6398)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 460	Speed: 291.21 samples/s	Training Loss 27.7015 (27.5744)	Training Prec@1 0.000 (0.033)
+Epoch 1 Batch 470	Speed: 293.02 samples/s	Training Loss 27.4110 (27.5148)	Training Prec@1 0.000 (0.033)
+Epoch 1 Batch 480	Speed: 290.82 samples/s	Training Loss 27.4639 (27.6077)	Training Prec@1 0.000 (0.167)
+Epoch 1 Batch 490	Speed: 293.11 samples/s	Training Loss 27.4012 (27.6501)	Training Prec@1 0.000 (0.100)
+Epoch 1 Batch 500	Speed: 290.06 samples/s	Training Loss 27.3726 (27.5969)	Training Prec@1 0.333 (0.100)
+Learning rate 0.000050
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][500]XNorm: 11.12514
+[lfw][500]Accuracy-Flip: 0.90433+-0.01188
+[lfw][500]Best-Threshold: 0.92900
+highest_acc: [0.9043333333333333]
+Epoch 1 Batch 510	Speed: 86.76 samples/s	Training Loss 27.5795 (27.4896)	Training Prec@1 0.000 (0.067)
+Epoch 1 Batch 520	Speed: 292.47 samples/s	Training Loss 27.5358 (27.4453)	Training Prec@1 0.333 (0.100)
+Epoch 1 Batch 530	Speed: 292.32 samples/s	Training Loss 27.4192 (27.5053)	Training Prec@1 0.333 (0.100)
+Epoch 1 Batch 540	Speed: 289.69 samples/s	Training Loss 27.6949 (27.4070)	Training Prec@1 0.000 (0.067)
+Epoch 1 Batch 550	Speed: 291.63 samples/s	Training Loss 27.0972 (27.3267)	Training Prec@1 0.000 (0.167)
+Epoch 1 Batch 560	Speed: 289.63 samples/s	Training Loss 26.9923 (27.3442)	Training Prec@1 0.000 (0.133)
+Epoch 1 Batch 570	Speed: 289.79 samples/s	Training Loss 26.9546 (27.3161)	Training Prec@1 0.000 (0.100)
+Epoch 1 Batch 580	Speed: 291.43 samples/s	Training Loss 27.4552 (27.2088)	Training Prec@1 0.333 (0.133)
+Epoch 1 Batch 590	Speed: 288.40 samples/s	Training Loss 27.2626 (27.2595)	Training Prec@1 0.000 (0.100)
+Epoch 1 Batch 600	Speed: 290.59 samples/s	Training Loss 26.9905 (27.1600)	Training Prec@1 0.333 (0.167)
+Learning rate 0.000050
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][600]XNorm: 9.08107
+[lfw][600]Accuracy-Flip: 0.91083+-0.01153
+[lfw][600]Best-Threshold: 0.97900
+highest_acc: [0.9108333333333334]
+Epoch 1 Batch 610	Speed: 87.57 samples/s	Training Loss 27.5865 (27.2747)	Training Prec@1 0.000 (0.100)
+Epoch 1 Batch 620	Speed: 291.66 samples/s	Training Loss 27.1443 (27.2098)	Training Prec@1 0.000 (0.100)
+Epoch 1 Batch 630	Speed: 290.61 samples/s	Training Loss 27.3366 (27.0951)	Training Prec@1 0.000 (0.133)
+Epoch 1 Batch 640	Speed: 293.58 samples/s	Training Loss 26.7447 (27.1204)	Training Prec@1 0.000 (0.133)
+Epoch 1 Batch 650	Speed: 290.06 samples/s	Training Loss 27.3889 (27.0573)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 660	Speed: 292.99 samples/s	Training Loss 26.7263 (26.9629)	Training Prec@1 0.667 (0.233)
+Epoch 1 Batch 670	Speed: 291.76 samples/s	Training Loss 27.2534 (27.0525)	Training Prec@1 0.333 (0.100)
+Epoch 1 Batch 680	Speed: 290.25 samples/s	Training Loss 27.2318 (27.1000)	Training Prec@1 0.000 (0.233)
+Epoch 1 Batch 690	Speed: 295.01 samples/s	Training Loss 27.1397 (27.0020)	Training Prec@1 0.000 (0.067)
+Epoch 1 Batch 700	Speed: 290.99 samples/s	Training Loss 27.0077 (27.0703)	Training Prec@1 0.000 (0.133)
+Learning rate 0.000050
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][700]XNorm: 10.05945
+[lfw][700]Accuracy-Flip: 0.91283+-0.01000
+[lfw][700]Best-Threshold: 0.99300
+highest_acc: [0.9128333333333334]
+Epoch 1 Batch 710	Speed: 86.71 samples/s	Training Loss 26.6268 (26.9576)	Training Prec@1 0.667 (0.200)
+Epoch 1 Batch 720	Speed: 291.07 samples/s	Training Loss 26.7195 (27.0263)	Training Prec@1 0.000 (0.233)
+Epoch 1 Batch 730	Speed: 293.46 samples/s	Training Loss 26.8891 (26.8007)	Training Prec@1 0.000 (0.200)
+Epoch 1 Batch 740	Speed: 289.91 samples/s	Training Loss 27.1149 (26.8602)	Training Prec@1 0.000 (0.167)
+Epoch 1 Batch 750	Speed: 291.36 samples/s	Training Loss 26.7010 (26.7625)	Training Prec@1 0.000 (0.033)
+Epoch 1 Batch 760	Speed: 289.94 samples/s	Training Loss 26.2960 (26.6321)	Training Prec@1 0.667 (0.200)
+Epoch 1 Batch 770	Speed: 288.76 samples/s	Training Loss 26.4740 (26.7080)	Training Prec@1 1.000 (0.367)
+Epoch 1 Batch 780	Speed: 290.49 samples/s	Training Loss 26.4530 (26.7591)	Training Prec@1 0.000 (0.100)
+Epoch 1 Batch 790	Speed: 289.94 samples/s	Training Loss 26.7197 (26.7180)	Training Prec@1 0.667 (0.200)
+Epoch 1 Batch 800	Speed: 290.86 samples/s	Training Loss 26.7428 (26.5752)	Training Prec@1 0.667 (0.267)
+Learning rate 0.000050
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][800]XNorm: 9.01323
+[lfw][800]Accuracy-Flip: 0.91917+-0.01241
+[lfw][800]Best-Threshold: 0.98700
+highest_acc: [0.9191666666666667]
+Epoch 1 Batch 810	Speed: 88.18 samples/s	Training Loss 26.3829 (26.6632)	Training Prec@1 1.000 (0.367)
+Epoch 1 Batch 820	Speed: 295.96 samples/s	Training Loss 26.4730 (26.5416)	Training Prec@1 0.000 (0.100)
+Epoch 1 Batch 830	Speed: 288.42 samples/s	Training Loss 26.8210 (26.7354)	Training Prec@1 0.000 (0.300)
+Epoch 1 Batch 840	Speed: 291.33 samples/s	Training Loss 26.6707 (26.5429)	Training Prec@1 0.333 (0.133)
+Epoch 1 Batch 850	Speed: 288.35 samples/s	Training Loss 26.1848 (26.5588)	Training Prec@1 0.000 (0.233)
+Epoch 1 Batch 860	Speed: 292.44 samples/s	Training Loss 26.5507 (26.5253)	Training Prec@1 0.000 (0.167)
+Epoch 1 Batch 870	Speed: 291.75 samples/s	Training Loss 26.5833 (26.4789)	Training Prec@1 0.333 (0.267)
+Epoch 1 Batch 880	Speed: 289.91 samples/s	Training Loss 26.3998 (26.3347)	Training Prec@1 0.333 (0.167)
+Epoch 1 Batch 890	Speed: 296.08 samples/s	Training Loss 26.2276 (26.3466)	Training Prec@1 0.333 (0.500)
+Epoch 1 Batch 900	Speed: 290.72 samples/s	Training Loss 26.5200 (26.3152)	Training Prec@1 0.000 (0.367)
+Learning rate 0.000050
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][900]XNorm: 9.70143
+[lfw][900]Accuracy-Flip: 0.92533+-0.01149
+[lfw][900]Best-Threshold: 1.06500
+highest_acc: [0.9253333333333333]
+Epoch 1 Batch 910	Speed: 87.44 samples/s	Training Loss 26.3389 (26.5208)	Training Prec@1 0.000 (0.200)
+Epoch 1 Batch 920	Speed: 287.48 samples/s	Training Loss 26.4288 (26.3169)	Training Prec@1 0.333 (0.267)
+Epoch 1 Batch 930	Speed: 292.22 samples/s	Training Loss 26.1293 (26.1624)	Training Prec@1 0.333 (0.233)
+Epoch 1 Batch 940	Speed: 288.48 samples/s	Training Loss 26.1609 (26.2186)	Training Prec@1 0.000 (0.167)
+Epoch 1 Batch 950	Speed: 293.88 samples/s	Training Loss 26.5599 (26.2940)	Training Prec@1 0.000 (0.233)
+Epoch 1 Batch 960	Speed: 288.25 samples/s	Training Loss 26.8406 (26.1944)	Training Prec@1 0.333 (0.333)
+Epoch 1 Batch 970	Speed: 289.03 samples/s	Training Loss 26.3933 (26.2099)	Training Prec@1 0.667 (0.533)
+Epoch 1 Batch 980	Speed: 292.80 samples/s	Training Loss 26.2177 (26.1030)	Training Prec@1 0.333 (0.300)
+Epoch 1 Batch 990	Speed: 287.57 samples/s	Training Loss 25.9353 (26.0723)	Training Prec@1 0.667 (0.367)
+Epoch 1 Batch 1000	Speed: 293.39 samples/s	Training Loss 25.8165 (26.1012)	Training Prec@1 0.333 (0.333)
+Learning rate 0.000050
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][1000]XNorm: 9.91911
+[lfw][1000]Accuracy-Flip: 0.92650+-0.01506
+[lfw][1000]Best-Threshold: 1.03000
+highest_acc: [0.9265000000000001]
+Epoch 1 Batch 1010	Speed: 88.00 samples/s	Training Loss 25.4012 (25.9604)	Training Prec@1 0.000 (0.367)
+Epoch 1 Batch 1020	Speed: 289.35 samples/s	Training Loss 25.9591 (25.8635)	Training Prec@1 0.333 (0.667)
+Epoch 1 Batch 1030	Speed: 288.15 samples/s	Training Loss 26.2075 (25.9712)	Training Prec@1 0.667 (0.567)
+Epoch 1 Batch 1040	Speed: 294.16 samples/s	Training Loss 25.6207 (25.7225)	Training Prec@1 0.333 (0.567)
+Epoch 1 Batch 1050	Speed: 288.51 samples/s	Training Loss 25.6466 (25.7752)	Training Prec@1 1.000 (0.733)
+Epoch 1 Batch 1060	Speed: 291.23 samples/s	Training Loss 25.7856 (25.8714)	Training Prec@1 0.667 (0.333)
+Epoch 1 Batch 1070	Speed: 290.26 samples/s	Training Loss 25.1452 (25.5961)	Training Prec@1 0.333 (0.500)
+Epoch 1 Batch 1080	Speed: 288.96 samples/s	Training Loss 25.5670 (25.7816)	Training Prec@1 0.667 (0.367)
+Epoch 1 Batch 1090	Speed: 292.31 samples/s	Training Loss 25.1029 (25.8153)	Training Prec@1 0.333 (0.300)
+Epoch 1 Batch 1100	Speed: 289.34 samples/s	Training Loss 26.2809 (25.6564)	Training Prec@1 0.000 (0.333)
+Learning rate 0.000050
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][1100]XNorm: 10.68705
+[lfw][1100]Accuracy-Flip: 0.92883+-0.01067
+[lfw][1100]Best-Threshold: 1.12400
+highest_acc: [0.9288333333333334]
+Epoch 1 Batch 1110	Speed: 87.55 samples/s	Training Loss 26.0234 (25.7866)	Training Prec@1 1.000 (0.600)
+Epoch 1 Batch 1120	Speed: 289.25 samples/s	Training Loss 25.4264 (25.6292)	Training Prec@1 2.000 (0.667)
+Epoch 1 Batch 1130	Speed: 293.24 samples/s	Training Loss 25.3430 (25.7883)	Training Prec@1 0.667 (0.467)
+Epoch 1 Batch 1140	Speed: 289.61 samples/s	Training Loss 25.4638 (25.4790)	Training Prec@1 0.667 (0.567)
+Epoch 1 Batch 1150	Speed: 292.18 samples/s	Training Loss 25.7693 (25.5855)	Training Prec@1 0.333 (0.567)
+Epoch 1 Batch 1160	Speed: 287.83 samples/s	Training Loss 25.3659 (25.5373)	Training Prec@1 0.000 (0.600)
+Epoch 1 Batch 1170	Speed: 288.86 samples/s	Training Loss 25.6734 (25.5279)	Training Prec@1 0.000 (0.400)
+Epoch 1 Batch 1180	Speed: 292.43 samples/s	Training Loss 25.4928 (25.5180)	Training Prec@1 1.667 (0.767)
+Epoch 1 Batch 1190	Speed: 290.42 samples/s	Training Loss 25.8000 (25.5902)	Training Prec@1 0.667 (0.467)
+Epoch 1 Batch 1200	Speed: 291.28 samples/s	Training Loss 25.3341 (25.3962)	Training Prec@1 0.333 (0.367)
+Learning rate 0.000050
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][1200]XNorm: 9.93862
+[lfw][1200]Accuracy-Flip: 0.93183+-0.01235
+[lfw][1200]Best-Threshold: 1.13900
+highest_acc: [0.9318333333333333]
+Epoch 1 Batch 1210	Speed: 87.93 samples/s	Training Loss 25.3222 (25.3750)	Training Prec@1 2.000 (0.800)
+Epoch 1 Batch 1220	Speed: 291.67 samples/s	Training Loss 25.9476 (25.4679)	Training Prec@1 0.333 (0.600)
+Epoch 1 Batch 1230	Speed: 289.99 samples/s	Training Loss 25.8672 (25.5884)	Training Prec@1 0.333 (0.533)
+Epoch 1 Batch 1240	Speed: 292.58 samples/s	Training Loss 25.5918 (25.4348)	Training Prec@1 1.000 (0.633)
+Epoch 1 Batch 1250	Speed: 289.05 samples/s	Training Loss 25.6857 (25.3183)	Training Prec@1 0.333 (0.533)
+Epoch 1 Batch 1260	Speed: 290.76 samples/s	Training Loss 25.2933 (25.2237)	Training Prec@1 0.333 (0.533)
+Epoch 1 Batch 1270	Speed: 290.84 samples/s	Training Loss 25.1549 (25.3314)	Training Prec@1 0.333 (0.733)
+Epoch 1 Batch 1280	Speed: 288.39 samples/s	Training Loss 24.7221 (25.1855)	Training Prec@1 1.333 (0.600)
+Epoch 1 Batch 1290	Speed: 291.51 samples/s	Training Loss 25.4020 (25.2109)	Training Prec@1 0.667 (0.667)
+Epoch 1 Batch 1300	Speed: 288.19 samples/s	Training Loss 24.9724 (24.9754)	Training Prec@1 0.667 (0.900)
+Learning rate 0.000050
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][1300]XNorm: 9.71080
+[lfw][1300]Accuracy-Flip: 0.93450+-0.01164
+[lfw][1300]Best-Threshold: 1.12000
+highest_acc: [0.9345000000000001]
+Epoch 1 Batch 1310	Speed: 86.38 samples/s	Training Loss 25.1955 (25.1235)	Training Prec@1 0.333 (0.533)
+Epoch 1 Batch 1320	Speed: 289.50 samples/s	Training Loss 24.7839 (25.1581)	Training Prec@1 0.667 (0.533)
+Epoch 1 Batch 1330	Speed: 291.80 samples/s	Training Loss 24.9714 (25.0614)	Training Prec@1 0.667 (0.633)
+Epoch 1 Batch 1340	Speed: 289.47 samples/s	Training Loss 24.7725 (25.1098)	Training Prec@1 0.333 (0.733)
+Epoch 1 Batch 1350	Speed: 289.60 samples/s	Training Loss 25.2517 (25.1376)	Training Prec@1 1.667 (0.733)
+Epoch 1 Batch 1360	Speed: 290.49 samples/s	Training Loss 24.8273 (25.0454)	Training Prec@1 1.000 (0.900)
+Epoch 1 Batch 1370	Speed: 285.62 samples/s	Training Loss 24.9261 (24.9556)	Training Prec@1 1.333 (0.900)
+Epoch 1 Batch 1380	Speed: 291.66 samples/s	Training Loss 24.4233 (24.8346)	Training Prec@1 1.000 (0.700)
+Epoch 1 Batch 1390	Speed: 289.00 samples/s	Training Loss 24.9213 (24.8267)	Training Prec@1 0.667 (0.567)
+Epoch 1 Batch 1400	Speed: 288.31 samples/s	Training Loss 24.3677 (24.7481)	Training Prec@1 0.667 (0.700)
+Learning rate 0.000050
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][1400]XNorm: 9.93634
+[lfw][1400]Accuracy-Flip: 0.93233+-0.01317
+[lfw][1400]Best-Threshold: 1.17500
+highest_acc: [0.9345000000000001]
+Epoch 1 Batch 1410	Speed: 88.09 samples/s	Training Loss 24.8053 (24.7512)	Training Prec@1 0.333 (1.000)
+Epoch 1 Batch 1420	Speed: 292.84 samples/s	Training Loss 24.7504 (24.7309)	Training Prec@1 0.667 (0.633)
+Epoch 1 Batch 1430	Speed: 290.05 samples/s	Training Loss 25.2101 (24.7857)	Training Prec@1 1.000 (1.000)
+Epoch 1 Batch 1440	Speed: 290.60 samples/s	Training Loss 24.7879 (24.8613)	Training Prec@1 1.000 (0.833)
+Epoch 1 Batch 1450	Speed: 290.26 samples/s	Training Loss 25.0596 (24.7241)	Training Prec@1 0.667 (0.900)
+Epoch 1 Batch 1460	Speed: 288.87 samples/s	Training Loss 25.1173 (24.6053)	Training Prec@1 0.667 (0.833)
+Epoch 1 Batch 1470	Speed: 292.53 samples/s	Training Loss 24.8206 (24.5576)	Training Prec@1 0.333 (1.067)
+Epoch 1 Batch 1480	Speed: 288.40 samples/s	Training Loss 24.2342 (24.5867)	Training Prec@1 0.000 (1.033)
+Epoch 1 Batch 1490	Speed: 289.84 samples/s	Training Loss 24.8916 (24.6462)	Training Prec@1 0.000 (0.700)
+Epoch 1 Batch 1500	Speed: 290.21 samples/s	Training Loss 24.9436 (24.4344)	Training Prec@1 1.333 (1.233)
+Learning rate 0.000050
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][1500]XNorm: 10.17949
+[lfw][1500]Accuracy-Flip: 0.93933+-0.01401
+[lfw][1500]Best-Threshold: 1.19000
+highest_acc: [0.9393333333333332]
+Epoch 1 Batch 1510	Speed: 86.29 samples/s	Training Loss 24.5350 (24.4163)	Training Prec@1 1.333 (1.200)
+Epoch 1 Batch 1520	Speed: 289.11 samples/s	Training Loss 23.7499 (24.4250)	Training Prec@1 2.000 (0.967)
+Epoch 1 Batch 1530	Speed: 290.89 samples/s	Training Loss 24.3388 (24.4586)	Training Prec@1 1.667 (1.133)
+Epoch 1 Batch 1540	Speed: 291.28 samples/s	Training Loss 24.0338 (24.3143)	Training Prec@1 0.667 (1.200)
+Epoch 1 Batch 1550	Speed: 288.22 samples/s	Training Loss 23.7800 (24.1811)	Training Prec@1 1.000 (1.233)
+Epoch 1 Batch 1560	Speed: 292.59 samples/s	Training Loss 24.4742 (24.3907)	Training Prec@1 0.000 (1.100)
+Epoch 1 Batch 1570	Speed: 288.91 samples/s	Training Loss 23.7473 (24.2673)	Training Prec@1 1.667 (1.200)
+Epoch 1 Batch 1580	Speed: 291.09 samples/s	Training Loss 24.5170 (24.3151)	Training Prec@1 0.667 (1.533)
+Epoch 1 Batch 1590	Speed: 290.78 samples/s	Training Loss 24.3778 (24.0521)	Training Prec@1 0.667 (1.400)
+Epoch 1 Batch 1600	Speed: 288.69 samples/s	Training Loss 24.6614 (24.5185)	Training Prec@1 1.667 (0.967)
+Learning rate 0.000050
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][1600]XNorm: 9.49075
+[lfw][1600]Accuracy-Flip: 0.94283+-0.01531
+[lfw][1600]Best-Threshold: 1.19100
+highest_acc: [0.9428333333333334]
+Epoch 1 Batch 1610	Speed: 88.16 samples/s	Training Loss 24.7078 (24.7058)	Training Prec@1 1.000 (1.100)
+Epoch 1 Batch 1620	Speed: 293.42 samples/s	Training Loss 24.5612 (24.7546)	Training Prec@1 1.333 (1.033)
+Epoch 1 Batch 1630	Speed: 290.06 samples/s	Training Loss 24.9902 (24.6486)	Training Prec@1 1.333 (0.800)

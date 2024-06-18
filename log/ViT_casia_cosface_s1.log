@@ -1,0 +1,642 @@
+GPU_ID [0]
+============================================================
+Overall Configurations:
+{'SEED': 1337, 'INPUT_SIZE': [112, 112], 'EMBEDDING_SIZE': 512, 'GPU_ID': [0], 'DEVICE': device(type='cuda', index=0), 'MULTI_GPU': True, 'NUM_EPOCH': 125, 'BATCH_SIZE': 64, 'DATA_ROOT': './Data/casia-webface/', 'EVAL_PATH': './eval/', 'BACKBONE_NAME': 'VIT', 'HEAD_NAME': 'CosFace', 'TARGET': ['lfw'], 'BACKBONE_RESUME_ROOT': '', 'WORK_PATH': './results/ViT_casia_cosface_s1'}
+============================================================
+./Data/casia-webface/train.rec ./Data/casia-webface/train.idx
+header0 label [490624. 501196.]
+id2range 10572
+Number of Training Classes: 10572
+./eval/lfw.bin
+loading bin 0
+loading bin 1000
+loading bin 2000
+loading bin 3000
+loading bin 4000
+loading bin 5000
+loading bin 6000
+loading bin 7000
+loading bin 8000
+loading bin 9000
+loading bin 10000
+loading bin 11000
+torch.Size([12000, 3, 112, 112])
+ver lfw
+self.device_id [0]
+self.device_id [0]
+[INFO]: Loading pre-trained weights...
+[INFO]: Fine-tuning all layers...
+self.device_id [0]
+[INFO]: Not loading pre-trained weights...
+self.device_id [0]
+[INFO]: Fine-tuning all layers...
+self.device_id [0]
+Loaded pretrained weights for efficientnet-b0
+self.device_id [0]
+[INFO]: Fine-tuning Only last 3 Blocks from 16 blocks...
+self.device_id [0]
+self.device_id [0]
+[INFO]: Freezing hidden layers...
+self.device_id [0]
+self.device_id [0]
+self.device_id [0]
+============================================================
+ViT_face(
+  (patch_to_embedding): Linear(in_features=192, out_features=512, bias=True)
+  (dropout): Dropout(p=0.1, inplace=False)
+  (transformer): Transformer(
+    (layers): ModuleList(
+      (0-19): 20 x ModuleList(
+        (0): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=512, out_features=1536, bias=False)
+              (to_out): Sequential(
+                (0): Linear(in_features=512, out_features=512, bias=True)
+                (1): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+        )
+        (1): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=512, out_features=2048, bias=True)
+                (1): GELU(approximate='none')
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=2048, out_features=512, bias=True)
+                (4): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+  (to_latent): Identity()
+  (mlp_head): Sequential(
+    (0): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  )
+  (loss): CosFace(in_features = 512, out_features = 10572, s = 64.0, m = 0.35)
+)
+VIT Backbone Generated
+============================================================
+============================================================
+AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 3e-05
+    maximize: False
+    weight_decay: 0.0
+
+Parameter Group 1
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 3e-05
+    maximize: False
+    weight_decay: 0.05
+)
+Optimizer Generated
+When initialized Learning Rate = 3e-05
+============================================================
+Device cuda:0
+GPU_ID allotted is 0
+Epoch 0 : Learing rate before scheduler step is called 3e-05
+Epoch 0 : Learing rate 2.9999999999999997e-05 
+/usr/lib/python3.10/multiprocessing/popen_fork.py:66: RuntimeWarning: os.fork() was called. os.fork() is incompatible with multithreaded code, and JAX is multithreaded, so this will likely lead to a deadlock.
+  self.pid = os.fork()
+Epoch 1 Batch 10	Speed: 40.20 samples/s	Training Loss 35.4625 (34.8807)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 20	Speed: 42.47 samples/s	Training Loss 34.6010 (34.2990)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 30	Speed: 40.93 samples/s	Training Loss 34.3219 (34.0664)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 40	Speed: 40.16 samples/s	Training Loss 33.7375 (33.9613)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 50	Speed: 38.53 samples/s	Training Loss 34.1186 (33.8655)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 60	Speed: 37.61 samples/s	Training Loss 33.9790 (33.5619)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 70	Speed: 38.67 samples/s	Training Loss 33.8277 (33.5113)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 80	Speed: 39.59 samples/s	Training Loss 33.0527 (33.2895)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 90	Speed: 39.62 samples/s	Training Loss 33.5442 (33.3017)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 100	Speed: 39.22 samples/s	Training Loss 32.7639 (33.2722)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][100]XNorm: 22.64455
+[lfw][100]Accuracy-Flip: 0.50050+-0.00107
+[lfw][100]Best-Threshold: 0.01000
+Epoch 1 Batch 110	Speed: 2.84 samples/s	Training Loss 33.3308 (33.1899)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 120	Speed: 38.75 samples/s	Training Loss 33.0274 (33.1824)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 130	Speed: 38.67 samples/s	Training Loss 33.3047 (33.2064)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 140	Speed: 38.96 samples/s	Training Loss 33.6095 (33.1162)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 150	Speed: 39.12 samples/s	Training Loss 33.3150 (32.9878)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 160	Speed: 39.16 samples/s	Training Loss 32.8261 (32.9501)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 170	Speed: 39.03 samples/s	Training Loss 32.3399 (32.9556)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 180	Speed: 38.86 samples/s	Training Loss 33.6751 (32.8478)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 190	Speed: 38.82 samples/s	Training Loss 32.5201 (32.6479)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 200	Speed: 38.95 samples/s	Training Loss 31.9919 (32.6385)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][200]XNorm: 22.65207
+[lfw][200]Accuracy-Flip: 0.50000+-0.00000
+[lfw][200]Best-Threshold: 0.00900
+Epoch 1 Batch 210	Speed: 2.82 samples/s	Training Loss 33.0798 (32.8835)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 220	Speed: 38.20 samples/s	Training Loss 32.8106 (32.7920)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 230	Speed: 38.45 samples/s	Training Loss 32.7945 (32.7013)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 240	Speed: 39.02 samples/s	Training Loss 33.0071 (32.6856)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 250	Speed: 39.29 samples/s	Training Loss 32.6692 (32.5019)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 260	Speed: 39.26 samples/s	Training Loss 33.1468 (32.8882)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 270	Speed: 38.98 samples/s	Training Loss 32.5295 (32.3391)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 280	Speed: 38.75 samples/s	Training Loss 32.9248 (32.4533)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 290	Speed: 38.88 samples/s	Training Loss 32.1382 (32.4853)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 300	Speed: 39.06 samples/s	Training Loss 32.4641 (32.2950)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][300]XNorm: 22.65789
+[lfw][300]Accuracy-Flip: 0.50000+-0.00000
+[lfw][300]Best-Threshold: 0.00900
+Epoch 1 Batch 310	Speed: 2.78 samples/s	Training Loss 32.1384 (32.3620)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 320	Speed: 37.91 samples/s	Training Loss 32.4777 (32.3898)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 330	Speed: 38.36 samples/s	Training Loss 32.1899 (32.4147)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 340	Speed: 39.06 samples/s	Training Loss 32.4092 (32.5656)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 350	Speed: 39.47 samples/s	Training Loss 32.4873 (32.4249)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 360	Speed: 39.39 samples/s	Training Loss 32.0886 (32.4586)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 370	Speed: 39.10 samples/s	Training Loss 31.9557 (32.4128)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 380	Speed: 38.82 samples/s	Training Loss 32.2730 (32.4731)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 390	Speed: 38.87 samples/s	Training Loss 32.6117 (32.1913)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 400	Speed: 39.00 samples/s	Training Loss 32.8769 (32.2371)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][400]XNorm: 22.66303
+[lfw][400]Accuracy-Flip: 0.50000+-0.00000
+[lfw][400]Best-Threshold: 0.00000
+Epoch 1 Batch 410	Speed: 2.80 samples/s	Training Loss 31.7907 (32.4103)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 420	Speed: 38.18 samples/s	Training Loss 32.3242 (32.1478)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 430	Speed: 38.51 samples/s	Training Loss 32.8492 (32.3816)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 440	Speed: 39.04 samples/s	Training Loss 32.3522 (32.0753)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 450	Speed: 39.35 samples/s	Training Loss 31.7982 (32.0996)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 460	Speed: 39.18 samples/s	Training Loss 32.6628 (32.1874)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 470	Speed: 38.99 samples/s	Training Loss 31.7668 (32.0314)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 480	Speed: 38.77 samples/s	Training Loss 31.9981 (32.1440)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 490	Speed: 38.87 samples/s	Training Loss 32.2208 (32.1459)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 500	Speed: 39.07 samples/s	Training Loss 32.0362 (32.0792)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][500]XNorm: 22.66871
+[lfw][500]Accuracy-Flip: 0.50000+-0.00000
+[lfw][500]Best-Threshold: 0.00000
+Epoch 1 Batch 510	Speed: 2.83 samples/s	Training Loss 31.9418 (31.9181)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 520	Speed: 38.68 samples/s	Training Loss 31.6910 (32.0424)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 530	Speed: 38.64 samples/s	Training Loss 32.1677 (31.9834)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 540	Speed: 38.95 samples/s	Training Loss 32.2821 (32.1839)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 550	Speed: 39.16 samples/s	Training Loss 31.9487 (31.9329)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 560	Speed: 39.08 samples/s	Training Loss 32.0123 (32.0742)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 570	Speed: 39.10 samples/s	Training Loss 32.1805 (32.1180)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 580	Speed: 38.98 samples/s	Training Loss 32.3227 (32.2150)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 590	Speed: 38.93 samples/s	Training Loss 31.9347 (31.9585)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 600	Speed: 38.86 samples/s	Training Loss 31.5541 (32.0439)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][600]XNorm: 22.67353
+[lfw][600]Accuracy-Flip: 0.50000+-0.00000
+[lfw][600]Best-Threshold: 0.00000
+Epoch 1 Batch 610	Speed: 2.77 samples/s	Training Loss 32.1184 (31.9870)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 620	Speed: 37.93 samples/s	Training Loss 32.3940 (32.0579)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 630	Speed: 38.22 samples/s	Training Loss 32.0062 (32.0155)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 640	Speed: 39.06 samples/s	Training Loss 31.7401 (31.8305)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 650	Speed: 39.44 samples/s	Training Loss 31.8686 (31.9305)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 660	Speed: 39.45 samples/s	Training Loss 31.7545 (31.8474)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 670	Speed: 39.07 samples/s	Training Loss 31.7915 (31.9005)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 680	Speed: 38.77 samples/s	Training Loss 32.0619 (32.0054)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 690	Speed: 38.90 samples/s	Training Loss 32.0006 (31.8191)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 700	Speed: 39.08 samples/s	Training Loss 31.9882 (31.9518)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][700]XNorm: 22.67941
+[lfw][700]Accuracy-Flip: 0.50000+-0.00000
+[lfw][700]Best-Threshold: 0.00000
+Epoch 1 Batch 710	Speed: 2.70 samples/s	Training Loss 31.8694 (31.9634)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 720	Speed: 37.60 samples/s	Training Loss 32.1307 (31.8680)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 730	Speed: 37.43 samples/s	Training Loss 32.2688 (31.8965)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 740	Speed: 38.98 samples/s	Training Loss 31.8624 (31.8689)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 750	Speed: 39.68 samples/s	Training Loss 31.6154 (31.8095)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 760	Speed: 39.72 samples/s	Training Loss 31.5325 (31.8537)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 770	Speed: 39.13 samples/s	Training Loss 31.4833 (31.7210)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 780	Speed: 38.76 samples/s	Training Loss 31.9759 (31.8701)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 790	Speed: 38.64 samples/s	Training Loss 31.9324 (31.8906)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 800	Speed: 38.82 samples/s	Training Loss 31.9099 (31.8495)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][800]XNorm: 22.68368
+[lfw][800]Accuracy-Flip: 0.50000+-0.00000
+[lfw][800]Best-Threshold: 0.00000
+Epoch 1 Batch 810	Speed: 2.80 samples/s	Training Loss 32.0867 (31.9517)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 820	Speed: 38.07 samples/s	Training Loss 31.6474 (31.7933)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 830	Speed: 38.22 samples/s	Training Loss 31.9909 (31.9874)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 840	Speed: 38.91 samples/s	Training Loss 32.4751 (31.8283)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 850	Speed: 39.45 samples/s	Training Loss 31.7015 (31.8145)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 860	Speed: 39.37 samples/s	Training Loss 31.8121 (31.7848)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 870	Speed: 39.16 samples/s	Training Loss 31.5449 (31.7826)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 880	Speed: 38.83 samples/s	Training Loss 31.9435 (31.8362)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 890	Speed: 38.89 samples/s	Training Loss 31.5573 (31.7749)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 900	Speed: 39.03 samples/s	Training Loss 31.7352 (31.7420)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][900]XNorm: 22.68963
+[lfw][900]Accuracy-Flip: 0.50000+-0.00000
+[lfw][900]Best-Threshold: 0.00000
+Epoch 1 Batch 910	Speed: 2.70 samples/s	Training Loss 31.6153 (31.7217)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 920	Speed: 37.52 samples/s	Training Loss 31.5594 (31.6001)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 930	Speed: 37.48 samples/s	Training Loss 31.6216 (31.8691)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 940	Speed: 38.88 samples/s	Training Loss 31.5900 (31.7744)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 950	Speed: 39.64 samples/s	Training Loss 31.5118 (31.7393)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 960	Speed: 39.63 samples/s	Training Loss 31.9992 (31.7129)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 970	Speed: 39.05 samples/s	Training Loss 31.8803 (31.7106)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 980	Speed: 38.66 samples/s	Training Loss 31.8705 (31.7683)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 990	Speed: 38.57 samples/s	Training Loss 31.5258 (31.6435)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1000	Speed: 38.93 samples/s	Training Loss 31.7102 (31.8045)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][1000]XNorm: 22.69417
+[lfw][1000]Accuracy-Flip: 0.50000+-0.00000
+[lfw][1000]Best-Threshold: 0.00000
+Epoch 1 Batch 1010	Speed: 2.75 samples/s	Training Loss 31.9213 (31.7434)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1020	Speed: 37.81 samples/s	Training Loss 31.7684 (31.7286)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1030	Speed: 37.93 samples/s	Training Loss 31.4390 (31.6060)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1040	Speed: 38.97 samples/s	Training Loss 31.8737 (31.7645)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1050	Speed: 39.52 samples/s	Training Loss 31.9642 (31.7420)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1060	Speed: 39.47 samples/s	Training Loss 32.1006 (31.9258)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1070	Speed: 39.05 samples/s	Training Loss 31.2258 (31.7656)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1080	Speed: 38.76 samples/s	Training Loss 31.8736 (31.7470)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1090	Speed: 38.85 samples/s	Training Loss 31.7893 (31.6949)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1100	Speed: 39.09 samples/s	Training Loss 31.2756 (31.6650)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][1100]XNorm: 22.70010
+[lfw][1100]Accuracy-Flip: 0.50000+-0.00000
+[lfw][1100]Best-Threshold: 0.00000
+Epoch 1 Batch 1110	Speed: 2.79 samples/s	Training Loss 31.7882 (31.7103)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1120	Speed: 37.94 samples/s	Training Loss 31.8384 (31.6299)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1130	Speed: 38.39 samples/s	Training Loss 31.6710 (31.6289)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1140	Speed: 39.03 samples/s	Training Loss 31.9639 (31.6466)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1150	Speed: 39.37 samples/s	Training Loss 31.7939 (31.6283)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1160	Speed: 39.28 samples/s	Training Loss 31.7902 (31.7112)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1170	Speed: 39.06 samples/s	Training Loss 31.6116 (31.5429)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1180	Speed: 38.73 samples/s	Training Loss 31.2515 (31.6215)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1190	Speed: 38.87 samples/s	Training Loss 31.4000 (31.7028)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1200	Speed: 39.07 samples/s	Training Loss 31.4649 (31.6845)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][1200]XNorm: 22.70571
+[lfw][1200]Accuracy-Flip: 0.50000+-0.00000
+[lfw][1200]Best-Threshold: 0.00000
+Epoch 1 Batch 1210	Speed: 2.76 samples/s	Training Loss 31.4701 (31.7970)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1220	Speed: 37.86 samples/s	Training Loss 31.8653 (31.8145)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1230	Speed: 37.97 samples/s	Training Loss 31.8512 (31.7076)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1240	Speed: 38.96 samples/s	Training Loss 31.6301 (31.6590)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1250	Speed: 39.47 samples/s	Training Loss 31.5118 (31.6894)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1260	Speed: 39.42 samples/s	Training Loss 31.7486 (31.7085)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1270	Speed: 38.98 samples/s	Training Loss 31.4531 (31.6308)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1280	Speed: 38.68 samples/s	Training Loss 31.8280 (31.7400)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1290	Speed: 38.84 samples/s	Training Loss 31.5634 (31.7204)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1300	Speed: 39.05 samples/s	Training Loss 31.5212 (31.5934)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][1300]XNorm: 22.71107
+[lfw][1300]Accuracy-Flip: 0.50000+-0.00000
+[lfw][1300]Best-Threshold: 0.00000
+Epoch 1 Batch 1310	Speed: 2.73 samples/s	Training Loss 31.6169 (31.5849)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1320	Speed: 37.64 samples/s	Training Loss 31.6000 (31.6377)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1330	Speed: 37.42 samples/s	Training Loss 31.6612 (31.6253)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1340	Speed: 38.80 samples/s	Training Loss 31.5263 (31.5979)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1350	Speed: 39.66 samples/s	Training Loss 31.6111 (31.5974)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1360	Speed: 39.72 samples/s	Training Loss 31.6833 (31.6896)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1370	Speed: 39.23 samples/s	Training Loss 31.5655 (31.6411)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1380	Speed: 38.66 samples/s	Training Loss 31.7644 (31.6716)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1390	Speed: 38.51 samples/s	Training Loss 31.6460 (31.6337)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1400	Speed: 38.78 samples/s	Training Loss 31.7246 (31.5624)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][1400]XNorm: 22.71667
+[lfw][1400]Accuracy-Flip: 0.50000+-0.00000
+[lfw][1400]Best-Threshold: 0.00000
+Epoch 1 Batch 1410	Speed: 2.72 samples/s	Training Loss 31.2479 (31.5975)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1420	Speed: 37.69 samples/s	Training Loss 31.1675 (31.5706)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1430	Speed: 37.45 samples/s	Training Loss 31.7129 (31.6130)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1440	Speed: 38.93 samples/s	Training Loss 31.3857 (31.6213)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1450	Speed: 39.69 samples/s	Training Loss 31.9428 (31.5761)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1460	Speed: 39.68 samples/s	Training Loss 31.5198 (31.6128)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1470	Speed: 39.12 samples/s	Training Loss 31.6790 (31.5673)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1480	Speed: 38.70 samples/s	Training Loss 31.7350 (31.6681)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1490	Speed: 38.64 samples/s	Training Loss 31.7004 (31.6333)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1500	Speed: 38.91 samples/s	Training Loss 31.5673 (31.5270)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][1500]XNorm: 22.72176
+[lfw][1500]Accuracy-Flip: 0.50000+-0.00000
+[lfw][1500]Best-Threshold: 0.00000
+Epoch 1 Batch 1510	Speed: 2.79 samples/s	Training Loss 31.6125 (31.5894)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1520	Speed: 37.87 samples/s	Training Loss 31.4023 (31.6065)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1530	Speed: 38.14 samples/s	Training Loss 31.5920 (31.6357)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1540	Speed: 38.94 samples/s	Training Loss 31.3247 (31.5488)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1550	Speed: 39.44 samples/s	Training Loss 31.6841 (31.6277)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1560	Speed: 39.39 samples/s	Training Loss 31.8073 (31.7058)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1570	Speed: 39.02 samples/s	Training Loss 31.4892 (31.6343)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1580	Speed: 38.73 samples/s	Training Loss 31.3979 (31.6142)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1590	Speed: 38.82 samples/s	Training Loss 31.1721 (31.5580)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1600	Speed: 38.99 samples/s	Training Loss 31.4722 (31.5197)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][1600]XNorm: 22.72759
+[lfw][1600]Accuracy-Flip: 0.50000+-0.00000
+[lfw][1600]Best-Threshold: 0.00900
+Epoch 1 Batch 1610	Speed: 2.77 samples/s	Training Loss 31.8445 (31.6131)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1620	Speed: 37.80 samples/s	Training Loss 31.9615 (31.5902)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1630	Speed: 38.00 samples/s	Training Loss 31.2777 (31.4814)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1640	Speed: 38.93 samples/s	Training Loss 31.8878 (31.5795)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1650	Speed: 39.46 samples/s	Training Loss 31.8107 (31.6493)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1660	Speed: 39.44 samples/s	Training Loss 31.8771 (31.5917)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1670	Speed: 39.00 samples/s	Training Loss 31.5978 (31.5504)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1680	Speed: 38.68 samples/s	Training Loss 32.0250 (31.5791)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1690	Speed: 38.78 samples/s	Training Loss 31.6152 (31.4763)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1700	Speed: 39.15 samples/s	Training Loss 31.5172 (31.5441)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][1700]XNorm: 22.73283
+[lfw][1700]Accuracy-Flip: 0.50000+-0.00000
+[lfw][1700]Best-Threshold: 0.00900
+Epoch 1 Batch 1710	Speed: 2.85 samples/s	Training Loss 31.7479 (31.5922)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1720	Speed: 38.70 samples/s	Training Loss 31.5493 (31.5505)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1730	Speed: 38.55 samples/s	Training Loss 31.4990 (31.6104)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1740	Speed: 38.78 samples/s	Training Loss 31.5750 (31.7713)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1750	Speed: 39.14 samples/s	Training Loss 31.5115 (31.5458)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1760	Speed: 39.19 samples/s	Training Loss 31.5415 (31.6080)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1770	Speed: 39.06 samples/s	Training Loss 31.1533 (31.4441)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1780	Speed: 38.91 samples/s	Training Loss 31.6755 (31.4999)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1790	Speed: 38.81 samples/s	Training Loss 31.7321 (31.5734)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1800	Speed: 38.82 samples/s	Training Loss 31.4370 (31.5553)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][1800]XNorm: 22.73899
+[lfw][1800]Accuracy-Flip: 0.50000+-0.00000
+[lfw][1800]Best-Threshold: 0.00900
+Epoch 1 Batch 1810	Speed: 2.84 samples/s	Training Loss 31.6614 (31.6846)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1820	Speed: 38.58 samples/s	Training Loss 31.6435 (31.5362)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1830	Speed: 38.48 samples/s	Training Loss 31.5124 (31.6218)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1840	Speed: 38.85 samples/s	Training Loss 31.4401 (31.6173)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1850	Speed: 39.15 samples/s	Training Loss 31.7695 (31.6138)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1860	Speed: 39.13 samples/s	Training Loss 31.6300 (31.5917)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1870	Speed: 39.00 samples/s	Training Loss 31.4711 (31.5275)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1880	Speed: 38.96 samples/s	Training Loss 31.6381 (31.6607)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1890	Speed: 38.85 samples/s	Training Loss 31.2706 (31.5221)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1900	Speed: 38.86 samples/s	Training Loss 31.5642 (31.5456)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][1900]XNorm: 22.74319
+[lfw][1900]Accuracy-Flip: 0.50050+-0.00107
+[lfw][1900]Best-Threshold: 0.01000
+Epoch 1 Batch 1910	Speed: 2.77 samples/s	Training Loss 31.6213 (31.6502)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1920	Speed: 37.83 samples/s	Training Loss 31.5900 (31.5170)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1930	Speed: 37.75 samples/s	Training Loss 31.8204 (31.6116)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1940	Speed: 38.87 samples/s	Training Loss 31.6683 (31.6096)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1950	Speed: 39.50 samples/s	Training Loss 31.4774 (31.5561)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1960	Speed: 39.42 samples/s	Training Loss 31.5568 (31.5672)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1970	Speed: 39.05 samples/s	Training Loss 31.2426 (31.4528)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1980	Speed: 38.68 samples/s	Training Loss 31.5734 (31.5857)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 1990	Speed: 38.74 samples/s	Training Loss 31.5797 (31.5526)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2000	Speed: 39.00 samples/s	Training Loss 31.6648 (31.5475)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][2000]XNorm: 22.75001
+[lfw][2000]Accuracy-Flip: 0.50050+-0.00107
+[lfw][2000]Best-Threshold: 0.01000
+Epoch 1 Batch 2010	Speed: 2.73 samples/s	Training Loss 31.6703 (31.5965)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2020	Speed: 37.60 samples/s	Training Loss 31.5284 (31.4752)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2030	Speed: 37.41 samples/s	Training Loss 31.4770 (31.5361)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2040	Speed: 38.83 samples/s	Training Loss 31.5129 (31.5750)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2050	Speed: 39.62 samples/s	Training Loss 31.4224 (31.5421)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2060	Speed: 39.62 samples/s	Training Loss 31.5164 (31.5760)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2070	Speed: 38.97 samples/s	Training Loss 31.5648 (31.5731)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2080	Speed: 38.68 samples/s	Training Loss 31.7913 (31.6058)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2090	Speed: 38.52 samples/s	Training Loss 31.2460 (31.5128)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2100	Speed: 38.83 samples/s	Training Loss 31.8048 (31.5118)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][2100]XNorm: 22.75569
+[lfw][2100]Accuracy-Flip: 0.50000+-0.00105
+[lfw][2100]Best-Threshold: 0.00900
+Epoch 1 Batch 2110	Speed: 2.79 samples/s	Training Loss 31.3769 (31.5046)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2120	Speed: 37.95 samples/s	Training Loss 31.4501 (31.5581)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2130	Speed: 38.25 samples/s	Training Loss 31.5258 (31.5280)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2140	Speed: 38.98 samples/s	Training Loss 31.4737 (31.5458)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2150	Speed: 39.38 samples/s	Training Loss 31.5950 (31.6312)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2160	Speed: 39.37 samples/s	Training Loss 31.5120 (31.5993)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2170	Speed: 39.03 samples/s	Training Loss 31.6638 (31.6211)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2180	Speed: 38.85 samples/s	Training Loss 31.8540 (31.5397)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2190	Speed: 38.79 samples/s	Training Loss 31.6999 (31.4901)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2200	Speed: 38.86 samples/s	Training Loss 31.6249 (31.5285)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][2200]XNorm: 22.76090
+[lfw][2200]Accuracy-Flip: 0.49950+-0.00076
+[lfw][2200]Best-Threshold: 0.00700
+Epoch 1 Batch 2210	Speed: 2.79 samples/s	Training Loss 31.7500 (31.5636)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2220	Speed: 37.92 samples/s	Training Loss 31.6183 (31.5041)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2230	Speed: 38.19 samples/s	Training Loss 31.5466 (31.5036)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2240	Speed: 38.93 samples/s	Training Loss 31.2739 (31.4513)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2250	Speed: 39.34 samples/s	Training Loss 31.3430 (31.5721)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2260	Speed: 39.32 samples/s	Training Loss 31.5162 (31.4998)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2270	Speed: 39.13 samples/s	Training Loss 31.3329 (31.4538)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2280	Speed: 38.76 samples/s	Training Loss 31.2078 (31.4854)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2290	Speed: 38.72 samples/s	Training Loss 31.1963 (31.5067)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2300	Speed: 38.99 samples/s	Training Loss 31.1428 (31.4295)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][2300]XNorm: 22.76708
+[lfw][2300]Accuracy-Flip: 0.49917+-0.00083
+[lfw][2300]Best-Threshold: 0.00500
+Epoch 1 Batch 2310	Speed: 2.80 samples/s	Training Loss 31.3749 (31.4430)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2320	Speed: 38.01 samples/s	Training Loss 31.5272 (31.4564)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2330	Speed: 38.32 samples/s	Training Loss 31.8725 (31.6019)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2340	Speed: 39.05 samples/s	Training Loss 31.6531 (31.4946)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2350	Speed: 39.45 samples/s	Training Loss 31.5331 (31.4353)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2360	Speed: 39.45 samples/s	Training Loss 31.3844 (31.4583)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2370	Speed: 39.08 samples/s	Training Loss 31.3486 (31.4907)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2380	Speed: 38.80 samples/s	Training Loss 31.4715 (31.5014)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2390	Speed: 38.87 samples/s	Training Loss 31.2229 (31.4041)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2400	Speed: 39.04 samples/s	Training Loss 31.4313 (31.5031)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][2400]XNorm: 22.77267
+[lfw][2400]Accuracy-Flip: 0.50067+-0.00281
+[lfw][2400]Best-Threshold: 0.01000
+Epoch 1 Batch 2410	Speed: 2.81 samples/s	Training Loss 31.3613 (31.4781)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2420	Speed: 38.34 samples/s	Training Loss 31.3072 (31.4697)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2430	Speed: 38.36 samples/s	Training Loss 31.3292 (31.5707)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2440	Speed: 38.88 samples/s	Training Loss 31.4365 (31.6198)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2450	Speed: 39.21 samples/s	Training Loss 31.4428 (31.5342)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2460	Speed: 39.26 samples/s	Training Loss 31.6815 (31.4908)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2470	Speed: 39.01 samples/s	Training Loss 31.3017 (31.4663)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2480	Speed: 38.79 samples/s	Training Loss 31.8112 (31.4260)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2490	Speed: 38.76 samples/s	Training Loss 31.5063 (31.5034)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2500	Speed: 38.91 samples/s	Training Loss 31.6525 (31.5181)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][2500]XNorm: 22.77785
+[lfw][2500]Accuracy-Flip: 0.50133+-0.00267
+[lfw][2500]Best-Threshold: 0.01000
+Epoch 1 Batch 2510	Speed: 2.68 samples/s	Training Loss 31.6613 (31.5599)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2520	Speed: 37.66 samples/s	Training Loss 31.4490 (31.5429)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2530	Speed: 37.44 samples/s	Training Loss 31.6539 (31.3869)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2540	Speed: 38.86 samples/s	Training Loss 31.6306 (31.4351)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2550	Speed: 39.65 samples/s	Training Loss 31.5612 (31.4342)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2560	Speed: 39.72 samples/s	Training Loss 31.4670 (31.4677)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2570	Speed: 39.13 samples/s	Training Loss 31.3366 (31.4593)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2580	Speed: 38.66 samples/s	Training Loss 31.2199 (31.4168)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2590	Speed: 38.57 samples/s	Training Loss 31.4735 (31.4717)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2600	Speed: 38.95 samples/s	Training Loss 31.2921 (31.4617)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][2600]XNorm: 22.78305
+[lfw][2600]Accuracy-Flip: 0.50233+-0.00359
+[lfw][2600]Best-Threshold: 0.01000
+Epoch 1 Batch 2610	Speed: 2.70 samples/s	Training Loss 31.3762 (31.4567)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2620	Speed: 37.54 samples/s	Training Loss 31.6150 (31.4964)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2630	Speed: 37.50 samples/s	Training Loss 31.4794 (31.4771)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2640	Speed: 38.86 samples/s	Training Loss 31.3468 (31.4447)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2650	Speed: 39.57 samples/s	Training Loss 31.6511 (31.5226)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2660	Speed: 39.65 samples/s	Training Loss 31.5861 (31.4992)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2670	Speed: 38.98 samples/s	Training Loss 31.6042 (31.4456)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2680	Speed: 38.63 samples/s	Training Loss 31.3059 (31.4867)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2690	Speed: 38.58 samples/s	Training Loss 31.4177 (31.5314)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2700	Speed: 38.98 samples/s	Training Loss 31.6021 (31.5729)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][2700]XNorm: 22.78718
+[lfw][2700]Accuracy-Flip: 0.50350+-0.00437
+[lfw][2700]Best-Threshold: 0.01000
+Epoch 1 Batch 2710	Speed: 2.79 samples/s	Training Loss 31.5705 (31.4847)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2720	Speed: 37.99 samples/s	Training Loss 31.4668 (31.5490)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2730	Speed: 38.20 samples/s	Training Loss 31.5136 (31.3950)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2740	Speed: 38.94 samples/s	Training Loss 31.5059 (31.5363)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2750	Speed: 39.40 samples/s	Training Loss 31.5809 (31.5051)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2760	Speed: 39.44 samples/s	Training Loss 31.4749 (31.4739)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2770	Speed: 39.15 samples/s	Training Loss 31.4177 (31.5418)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2780	Speed: 38.77 samples/s	Training Loss 31.5026 (31.4984)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2790	Speed: 38.77 samples/s	Training Loss 31.5061 (31.4510)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2800	Speed: 39.00 samples/s	Training Loss 31.4559 (31.3700)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][2800]XNorm: 22.79493
+[lfw][2800]Accuracy-Flip: 0.50467+-0.00542
+[lfw][2800]Best-Threshold: 0.01000
+Epoch 1 Batch 2810	Speed: 2.78 samples/s	Training Loss 31.4252 (31.4756)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2820	Speed: 37.99 samples/s	Training Loss 31.2484 (31.5292)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2830	Speed: 38.30 samples/s	Training Loss 31.4159 (31.4291)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2840	Speed: 39.00 samples/s	Training Loss 31.3760 (31.5039)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2850	Speed: 39.39 samples/s	Training Loss 31.7096 (31.5036)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2860	Speed: 39.36 samples/s	Training Loss 31.5989 (31.4988)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2870	Speed: 39.00 samples/s	Training Loss 31.4217 (31.4854)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2880	Speed: 38.72 samples/s	Training Loss 31.2077 (31.4654)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2890	Speed: 38.94 samples/s	Training Loss 31.4245 (31.5055)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2900	Speed: 39.06 samples/s	Training Loss 31.6004 (31.5172)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][2900]XNorm: 22.80093
+[lfw][2900]Accuracy-Flip: 0.50450+-0.00506
+[lfw][2900]Best-Threshold: 0.01000
+Epoch 1 Batch 2910	Speed: 2.75 samples/s	Training Loss 31.5730 (31.4801)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2920	Speed: 37.64 samples/s	Training Loss 31.5405 (31.3613)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2930	Speed: 37.96 samples/s	Training Loss 31.3816 (31.4420)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2940	Speed: 38.99 samples/s	Training Loss 31.4869 (31.5781)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2950	Speed: 39.55 samples/s	Training Loss 31.5747 (31.4714)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2960	Speed: 39.30 samples/s	Training Loss 31.9874 (31.4807)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2970	Speed: 38.94 samples/s	Training Loss 31.3955 (31.4453)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2980	Speed: 38.76 samples/s	Training Loss 31.7843 (31.5448)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 2990	Speed: 38.89 samples/s	Training Loss 31.6618 (31.4368)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3000	Speed: 39.13 samples/s	Training Loss 31.5324 (31.4714)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][3000]XNorm: 22.80497
+[lfw][3000]Accuracy-Flip: 0.50467+-0.00567
+[lfw][3000]Best-Threshold: 0.01000
+Epoch 1 Batch 3010	Speed: 2.82 samples/s	Training Loss 31.3675 (31.4071)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3020	Speed: 38.39 samples/s	Training Loss 31.5687 (31.5053)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3030	Speed: 38.38 samples/s	Training Loss 31.4290 (31.5121)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3040	Speed: 38.87 samples/s	Training Loss 31.2813 (31.4939)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3050	Speed: 39.32 samples/s	Training Loss 31.3498 (31.4085)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3060	Speed: 39.23 samples/s	Training Loss 31.7495 (31.5058)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3070	Speed: 38.93 samples/s	Training Loss 31.3184 (31.4102)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3080	Speed: 38.85 samples/s	Training Loss 31.6037 (31.4723)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3090	Speed: 38.90 samples/s	Training Loss 31.4071 (31.4687)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3100	Speed: 39.03 samples/s	Training Loss 31.6784 (31.5282)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][3100]XNorm: 22.81031
+[lfw][3100]Accuracy-Flip: 0.50567+-0.00692
+[lfw][3100]Best-Threshold: 0.01000
+Epoch 1 Batch 3110	Speed: 2.81 samples/s	Training Loss 31.5509 (31.5072)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3120	Speed: 38.31 samples/s	Training Loss 31.4008 (31.4162)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3130	Speed: 38.44 samples/s	Training Loss 31.3050 (31.3686)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3140	Speed: 38.92 samples/s	Training Loss 31.4842 (31.4432)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3150	Speed: 39.22 samples/s	Training Loss 31.4184 (31.3570)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3160	Speed: 39.15 samples/s	Training Loss 31.3636 (31.4612)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3170	Speed: 38.94 samples/s	Training Loss 31.5402 (31.4588)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3180	Speed: 38.76 samples/s	Training Loss 31.3374 (31.4642)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3190	Speed: 38.84 samples/s	Training Loss 31.4680 (31.4712)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3200	Speed: 38.93 samples/s	Training Loss 31.2643 (31.3726)	Training Prec@1 0.000 (0.000)
+Learning rate 0.000030
+Perform Evaluation on  ['lfw'] , and Save Checkpoints...
+(12000, 512)
+[lfw][3200]XNorm: 22.81746
+[lfw][3200]Accuracy-Flip: 0.50683+-0.00841
+[lfw][3200]Best-Threshold: 0.01000
+Epoch 1 Batch 3210	Speed: 2.82 samples/s	Training Loss 31.4457 (31.4081)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3220	Speed: 38.54 samples/s	Training Loss 31.3270 (31.3925)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3230	Speed: 38.51 samples/s	Training Loss 31.6002 (31.4971)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3240	Speed: 38.89 samples/s	Training Loss 31.4817 (31.4427)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3250	Speed: 39.07 samples/s	Training Loss 31.4400 (31.4554)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3260	Speed: 39.06 samples/s	Training Loss 31.7696 (31.5342)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3270	Speed: 39.11 samples/s	Training Loss 31.5614 (31.5053)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3280	Speed: 38.97 samples/s	Training Loss 31.6559 (31.3895)	Training Prec@1 0.000 (0.000)
+Epoch 1 Batch 3290	Speed: 38.90 samples/s	Training Loss 31.5497 (31.4911)	Training Prec@1 0.000 (0.000)
